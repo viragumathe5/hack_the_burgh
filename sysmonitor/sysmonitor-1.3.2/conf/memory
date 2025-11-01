@@ -1,8 +1,0 @@
-# memory usage alarm percent
-ALARM="90"
-
-# memory usage alarm resume percent
-RESUME="80"
-
-# monitor period(second)
-PERIOD="60"

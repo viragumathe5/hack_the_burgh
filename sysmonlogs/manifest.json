@@ -1,0 +1,10 @@
+{
+    "version": 0,
+
+    "tools": {
+        "syslogs": {
+            "label": "System Monitor Logs",
+            "path": "syslogs.html"
+        }
+    }
+}

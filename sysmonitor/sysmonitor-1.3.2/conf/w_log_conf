@@ -1,3 +1,0 @@
-#log path config for normal mode
-WRITE_LOG_PATH="/var/log/sysmonitor.log"
-UTC_TIME="on"

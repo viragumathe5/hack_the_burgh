@@ -1,5 +1,0 @@
-USER=root
-NAME=dbus-daemon
-MONITOR_MODE=parallel
-MONITOR_PERIOD=30
-MONITOR_COMMAND=/usr/libexec/sysmonitor/check_dbus.sh

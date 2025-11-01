@@ -1,4 +1,0 @@
-MONITOR_SWITCH="on"
-TYPE="periodic"
-EXECSTART="/usr/bin/python3 /usr/libexec/sysmonitor/clocktransition.py"
-PERIOD="600"

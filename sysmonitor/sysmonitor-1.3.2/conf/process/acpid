@@ -1,5 +1,0 @@
-USER=root
-NAME=acpid
-RECOVER_COMMAND=systemctl restart acpid
-MONITOR_COMMAND=systemctl status acpid
-STOP_COMMAND=systemctl stop acpid

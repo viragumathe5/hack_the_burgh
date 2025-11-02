@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LOGFILE="/var/log/sysmonitor.log"  # change to your actual log path
+LOGFILE="/var/log/sysmonitor.log"
 
 LAST_ENTRY_ZOMBIE=$(grep "zombie process count" "$LOGFILE" | tail -n 1)
 ZOMBIE_ALARM=0

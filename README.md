@@ -125,7 +125,8 @@ systemctl disable sysmonitor
 
 You should see the sysmonitor log stream showing logs in our custom format.
 
-<IMAGE TBD></IMAGE>
+![Screenshot of sysmonitor custom logs](img/ci_logs.jpeg)
+
 
 ## Cockpit Plugins
 
@@ -201,8 +202,4 @@ Following images shows the visualisation of the dashboard for the memory and zom
 * Image shows the alarm board for the different logs.
 
 ![Screenshot of alarms plugin](img/alarm_board.png)
-
-* The CI logs can be observed using the local CI.
-
-![Screenshot of CI logs](img/ci_logs.jpeg)
 

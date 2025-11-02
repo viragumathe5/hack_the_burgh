@@ -196,13 +196,13 @@ Following images shows the visualisation of the dashboard for the memory and zom
 
 * Following image shows the developed visualisation of the logs plugin.
 
-![Screenshot of logs plugin](./img/log_board.png)
+![Screenshot of logs plugin](img/log_board.png)
 
 * Image shows the alarm board for the different logs.
 
-![Screenshot of alarms plugin](./img/alarm_board.png)
+![Screenshot of alarms plugin](img/alarm_board.png)
 
 * The CI logs can be observed using the local CI.
 
-![Screenshot of CI logs](./img/ci_logs.jpeg)
+![Screenshot of CI logs](img/ci_logs.jpeg)
 

@@ -196,7 +196,12 @@ static void log_for_normal(const char *detail, struct tm t)
 
     if (g_flag_utc == true) {
         ret = snprintf_s(msg, MAX_LOG_LEN + MAX_TEMPSTR, MAX_LOG_LEN + MAX_TEMPSTR - 1,
-            "[UTC %04d-%02d-%02d:%02d:%02d:%02d]sysmonitor[%d]: %s\n",
+                         "{"
+                             "\"timezone\": \"UTC\","
+                             "\"timestamp\": \"%04d-%02d-%02d:%02d:%02d:%02d\","
+                             "\"pid\": \"%d\","
+                             "\"message\": \"%s\","
+                         "}",
             t.tm_year + TM_YEAR_BEGIN, t.tm_mon + 1, t.tm_mday,
             t.tm_hour, t.tm_min, t.tm_sec, g_monitor_main_pid, detail);
     } else {

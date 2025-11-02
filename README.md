@@ -138,7 +138,18 @@ Furthremore, we configured the system monitor by setting appropriate values in t
 - `/etc/sysmonitor/memory`: Change alarm, resume and poll frequency values
 - `/etc/sysconfig/sysmonitor`: Enable zombie process monitoring
 
-![Screenshot of logs plugin](./img/screenshot-logs.png)
+Following images shows the visualisation of the dashboard for the memory and zombie process.
 
-![Screenshot of alarms plugin](./img/screenshot-alarms.png)
+
+* Following image shows the developed visualisation of the logs plugin.
+
+![Screenshot of logs plugin](./img/log_board.png)
+
+* Image shows the alarm board for the different logs.
+
+![Screenshot of alarms plugin](./img/alarm_board.png)
+
+* The CI logs can be observed using the local CI.
+
+![Screenshot of CI logs](./img/ci_logs.jpeg)
 

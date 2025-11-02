@@ -1,22 +1,43 @@
 # hack_the_burgh
 
-Repository for getting cooked.
+This repository contains proof of concepts that aim to improve the extensibility
+and modularity of openEuler's [sysmonitor daemon](https://docs.openeuler.org/en/docs/25.09/tools/maintenance/sysmonitor/sysmonitor_user_guide.html) by implementing two things:
 
-## OpenEuler: Sysmonitor
+First, we modified the sysmonitor log format to one that is more commonly consumed by conventional logging consumer and visualiser (i.e. JSON format).
+
+Secondly, we build a prototype [RedHat Cockpit](https://www.redhat.com/en/blog/intro-cockpit) plugin that able to leverage sysmonitor various log streams and alert mechanism to provide user-friendly interface for system monitoring.
+
+Both of these works illustrate the potentials of how the sysmonitor capabilities
+can be pushed further through extensions and plugins.
+
+## Background
+
+All instructions and on this documents are tested on the following
+environment:
+- openEuler 25.09 Server (x86_64)
+- openEuler 25.09 Edge Cloud Server (x86_64)
+
+## OpenEuler Sysmonitor
 
 **Source code:** https://gitee.com/openeuler/sysmonitor
 
 **Dependency:**
 
-- https://gitee.com/Janisa/huawei_secure_c
-- https://gitee.com/openeuler/libboundscheck
-- CUnit (https://cunit.sourceforge.net/)
+- CMake build tool: https://cmake.org/
+- Huawei SecureC library: https://gitee.com/Janisa/huawei_secure_c
+- OpenEuler Bounds Check library: https://gitee.com/openeuler/libboundscheck
+- CUnit: https://cunit.sourceforge.net/
 
 ### Building Sysmonitor
 
 #### Installing dependencies
 
+Before the sysmonitor can be compiled, all the dependencies must be built and
+installed.
+
 ##### SecureC
+
+The SecureC library must be compiled from the source code.
 
 ```bash
 # Clone the source code
@@ -36,6 +57,8 @@ sudo ln -s $(pwd)/* /usr/include/
 
 ##### LibBoundsCheck
 
+The Bounds Check library must be compiled from the source code.
+
 ```bash
 # Clone the source code
 git clone https://gitee.com/openeuler/libboundscheck
@@ -54,10 +77,12 @@ sudo ln -s $(pwd)/libboundscheck.so /usr/local/lib/
 CUnit library is publicly available. Install it using the relevant package manager on your environment.
 
 ```bash
-sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev
+sudo dnf install CUnit CUnit-devel
 ```
 
 #### Building the Source Code
+
+Build the sysmonitor and all the relevant binaries by using CMake
 
 ```bash
 # Clone this repo and make the build directory
@@ -73,6 +98,34 @@ make
 ```
 
 You will see the `sysmonitor` main binary in `build/src/sysmonitor`.
+
+### Running Sysmonitor
+
+The working method to run this modified version of the sysmonitor is by first
+install official version of sysmonitor from openEuler package manager, then
+disable the sysmonitor daemon and start the custom binary in normal mode.
+
+This method ensures that all the environment requirement (e.g. configuration
+files) are satisfied before the custom binary is launched.
+
+```bash
+# Install the distro version of sysmonitor
+dnf install sysmonitor
+
+# Reboot to complete sysmonitor setup
+reboot
+
+# Disable the official sysmonitor daemon
+systemctl stop sysmonitor
+systemctl disable sysmonitor
+
+# Run the custom binary in normal mode
+./build/src/sysmonitor --normal
+```
+
+You should see the sysmonitor log stream showing logs in our custom format.
+
+<IMAGE TBD></IMAGE>
 
 ## Cockpit Plugins
 

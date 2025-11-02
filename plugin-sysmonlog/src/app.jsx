@@ -27,7 +27,7 @@ function LogTable() {
     const [error, setError] = useState(null);
 
     const fetchData = useCallback(() => {
-        cockpit.spawn(['/usr/share/cockpit/scripts/getdata.sh'])
+        cockpit.spawn(['/usr/local/share/cockpit/scripts/getdata.sh'])
             .then((output) => {
                 try {
                     const data = JSON.parse(output);

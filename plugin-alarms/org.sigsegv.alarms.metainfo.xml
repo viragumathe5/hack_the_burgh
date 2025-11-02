@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.sigsegv.alarms</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>OpenEuler System Monitor Alarms</name>
+  <summary>TODO:</summary>
+  <description>
+    <p>
+      TODO
+    </p>
+  </description>
+  <extends>org.cockpit_project.cockpit</extends>
+  <launchable type="cockpit-manifest">sysmon</launchable>
+  <developer id="org.sigsegv">
+    <name>SIGSEGV Team</name>
+  </developer>
+</component>
